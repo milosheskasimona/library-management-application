@@ -1,11 +1,10 @@
 package com.simonamilosheska.services.interfaces;
 
-import com.simonamilosheska.dtos.AuthorDto;
+import com.simonamilosheska.responses.AuthorDto;
 import com.simonamilosheska.models.Author;
 import com.simonamilosheska.requests.AuthorRequest;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface AuthorService {
 

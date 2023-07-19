@@ -1,6 +1,6 @@
 package com.simonamilosheska.services.interfaces;
 
-import com.simonamilosheska.dtos.BookDto;
+import com.simonamilosheska.responses.BookDto;
 import com.simonamilosheska.models.Author;
 import com.simonamilosheska.models.Book;
 import com.simonamilosheska.requests.BookRequest;

@@ -1,6 +1,5 @@
-package com.simonamilosheska.dtos;
+package com.simonamilosheska.responses;
 
-import com.simonamilosheska.models.Author;
 import com.simonamilosheska.models.Book;
 
 import java.time.LocalDate;

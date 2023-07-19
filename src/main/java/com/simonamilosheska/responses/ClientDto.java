@@ -1,8 +1,6 @@
-package com.simonamilosheska.dtos;
+package com.simonamilosheska.responses;
 
 import com.simonamilosheska.models.Client;
-
-import java.time.LocalDate;
 
 public class ClientDto {
 

@@ -1,6 +1,6 @@
 package com.simonamilosheska.services;
 
-import com.simonamilosheska.dtos.BookDto;
+import com.simonamilosheska.responses.BookDto;
 import com.simonamilosheska.exceptions.AlreadyExistEntityException;
 import com.simonamilosheska.exceptions.NotExistEntityException;
 import com.simonamilosheska.models.Author;

@@ -1,6 +1,6 @@
 package com.simonamilosheska.services.interfaces;
 
-import com.simonamilosheska.dtos.ClientDto;
+import com.simonamilosheska.responses.ClientDto;
 import com.simonamilosheska.models.Client;
 import com.simonamilosheska.requests.ClientRequest;
 

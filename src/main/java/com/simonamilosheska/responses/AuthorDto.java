@@ -1,4 +1,4 @@
-package com.simonamilosheska.dtos;
+package com.simonamilosheska.responses;
 
 import com.simonamilosheska.models.Author;
 
