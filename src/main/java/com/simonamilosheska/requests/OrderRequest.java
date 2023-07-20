@@ -1,21 +1,24 @@
 package com.simonamilosheska.requests;
 
+import com.simonamilosheska.models.Book;
+import com.simonamilosheska.models.Client;
+
 import java.util.List;
 
 public class OrderRequest {
-  private int clientId;
-  private List<Integer> bookIds;
+  private Client client;
+  private List<Book> books;
 
-  public OrderRequest(int clientId, List<Integer> bookIds) {
-    this.clientId=clientId;
-    this.bookIds=bookIds;
+  public OrderRequest(Client client, List<Book> books) {
+    this.client=client;
+    this.books=books;
   }
 
-  public int getClientId() {
-    return clientId;
+  public Client getClient() {
+    return client;
   }
 
-  public List<Integer> getBookIds() {
-    return bookIds;
+  public List<Book> getBooks() {
+    return books;
   }
 }

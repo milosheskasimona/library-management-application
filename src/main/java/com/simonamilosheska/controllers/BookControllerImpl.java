@@ -1,5 +1,6 @@
 package com.simonamilosheska.controllers;
 
+import com.simonamilosheska.requests.BookUpdateRequest;
 import com.simonamilosheska.responses.BookDto;
 import com.simonamilosheska.models.Book;
 import com.simonamilosheska.requests.BookRequest;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -62,6 +64,12 @@ public class BookControllerImpl  {
   @PutMapping("/books/{bookId}")
   public ResponseEntity<Void> updateBook(@RequestBody @Valid BookRequest bookRequest, @PathVariable Integer bookId) {
     bookServiceImpl.editBookById(bookId, bookRequest);
+    return ResponseEntity.noContent().build();
+  }
+  @PreAuthorize("hasAnyRole('LIBRARIAN','ADMIN')")
+  @PatchMapping("/books/{bookId}")
+  public ResponseEntity<Void> updateBookCopies(@RequestBody @Valid BookUpdateRequest bookRequest, @PathVariable String bookId) {
+    bookServiceImpl.updateBookCopies(Integer.parseInt(bookId), bookRequest);
     return ResponseEntity.noContent().build();
   }
   @PreAuthorize("hasRole('ADMIN')")

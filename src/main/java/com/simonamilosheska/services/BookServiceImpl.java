@@ -1,5 +1,6 @@
 package com.simonamilosheska.services;
 
+import com.simonamilosheska.requests.BookUpdateRequest;
 import com.simonamilosheska.responses.BookDto;
 import com.simonamilosheska.exceptions.AlreadyExistEntityException;
 import com.simonamilosheska.exceptions.NotExistEntityException;
@@ -67,6 +68,12 @@ public class BookServiceImpl implements BookService {
     book.setAuthor(bookRequest.getAuthor());
     bookRepository.save(book);
   }
+  @Override
+  public void updateBookCopies(Integer id, BookUpdateRequest bookRequest) {
+    Book book = getBookIfPresentOrError(id);
+    book.setNumberOfCopies(bookRequest.getNumberOfCopies());
+    bookRepository.save(book);
+  }
 
   @Override
   public Book getBookIfPresentOrError(Integer id) {
@@ -85,7 +92,7 @@ public class BookServiceImpl implements BookService {
       log.error(String.format("Book with name [%s] and author name [%s] already exist  in database", bookName,
                               author.getName()));
       throw new AlreadyExistEntityException(
-        String.format("Book with name [%s] and author name [%s] already exist, if you want to add copy of book select addBookCopy", bookName, author.getName()));
+        String.format("Book with name [%s] and author name [%s] already exist, if you want to add copy of book select addBookCopy option", bookName, author.getName()));
     }
   }
 }

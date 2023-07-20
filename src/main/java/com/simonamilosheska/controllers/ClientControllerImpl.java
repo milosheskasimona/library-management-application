@@ -31,18 +31,21 @@ public class ClientControllerImpl  {
     this.clientServiceImpl = clientServiceImpl;
   }
 
+  @PreAuthorize("hasAnyRole('LIBRARIAN')")
   @GetMapping("/clients")
   public ResponseEntity<List<ClientDto>> getAllClients() {
     List<ClientDto> clients = clientServiceImpl.getAllClients();
     return ResponseEntity.ok(clients);
   }
 
+  @PreAuthorize("hasAnyRole('LIBRARIAN')")
   @GetMapping("/clients/{id}")
   public ResponseEntity<ClientDto> getClient(@PathVariable Integer id) {
     ClientDto client = clientServiceImpl.findClientById(id);
     return ResponseEntity.ok(client);
   }
 
+  @PreAuthorize("hasAnyRole('LIBRARIAN')")
   @PostMapping("/clients")
   public ResponseEntity<Void> createClient(@RequestBody @Valid ClientRequest clientRequest) {
     Client client = clientServiceImpl.saveClient(clientRequest);
@@ -54,6 +57,7 @@ public class ClientControllerImpl  {
     return ResponseEntity.created(location).build();
   }
 
+  @PreAuthorize("hasAnyRole('LIBRARIAN')")
   @PutMapping("/clients/{id}")
   public ResponseEntity<Void> editClient(@RequestBody @Valid ClientRequest clientRequest, @PathVariable Integer id) {
     clientServiceImpl.editClientById(id, clientRequest);
