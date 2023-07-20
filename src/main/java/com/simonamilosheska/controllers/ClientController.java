@@ -22,12 +22,12 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-public class ClientControllerImpl  {
+public class ClientController {
 
   private final ClientServiceImpl clientServiceImpl;
 
   @Autowired
-  public ClientControllerImpl(ClientServiceImpl clientServiceImpl) {
+  public ClientController(ClientServiceImpl clientServiceImpl) {
     this.clientServiceImpl = clientServiceImpl;
   }
 

@@ -25,15 +25,15 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-public class BookControllerImpl  {
+public class BookController {
 
   BookServiceImpl bookServiceImpl;
-  AuthorControllerImpl authorControllerImpl;
+  AuthorController authorController;
 
   @Autowired
-  public BookControllerImpl(BookServiceImpl bookServiceImpl, AuthorControllerImpl authorControllerImpl) {
+  public BookController(BookServiceImpl bookServiceImpl, AuthorController authorController) {
     this.bookServiceImpl = bookServiceImpl;
-    this.authorControllerImpl = authorControllerImpl;
+    this.authorController = authorController;
   }
 
   @GetMapping("/books")

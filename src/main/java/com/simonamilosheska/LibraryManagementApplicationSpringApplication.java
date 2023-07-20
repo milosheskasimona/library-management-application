@@ -1,7 +1,7 @@
 package com.simonamilosheska;
 
-import com.simonamilosheska.controllers.AuthorControllerImpl;
-import com.simonamilosheska.controllers.ClientControllerImpl;
+import com.simonamilosheska.controllers.AuthorController;
+import com.simonamilosheska.controllers.ClientController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -10,15 +10,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LibraryManagementApplicationSpringApplication {
 
-  private AuthorControllerImpl authorControllerImpl;
-  private ClientControllerImpl clientControllerImpl;
+  private AuthorController authorController;
+  private ClientController clientController;
 
 
   @Autowired
   public LibraryManagementApplicationSpringApplication(
-    AuthorControllerImpl authorControllerImpl, ClientControllerImpl clientControllerImpl) {
-    this.authorControllerImpl = authorControllerImpl;
-    this.clientControllerImpl = clientControllerImpl;
+    AuthorController authorController, ClientController clientController) {
+    this.authorController = authorController;
+    this.clientController = clientController;
   }
 
   public static void main(String[] args) {

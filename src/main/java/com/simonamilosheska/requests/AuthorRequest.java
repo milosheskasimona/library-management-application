@@ -15,7 +15,6 @@ public class AuthorRequest {
   private String dateOfBirth;
   private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-
   public String getName() {
     return name;
   }
