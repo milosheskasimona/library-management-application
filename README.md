@@ -4,9 +4,11 @@
 - [Project Description](#project-description)
 - [Functionalities](#functionalities)
 - [Technologies](#technologies)
-- [Getting Started](#getting-started)
-- [API Documentation](#api-documentation)
+- [Architecture of the project](#architecture-of-the-project)
+- [ER Diagram of the database](#er-diagram-of-the-database)
 - [Security](#security)
+- [API Documentation](#api-documentation)
+- [Getting Started](#getting-started)
 - [Feature Plans](#feature-plans)
 
 ## Project Description
@@ -62,19 +64,30 @@ Project is created with:
 * Spring Security 
 * JUnit 4
 * Maven 3
+* Postgres
+* Git
+### Architecture of the project
+The project follows a Three-Layer Architecture with distinct layers:
 
-## Getting Started
-
-To run Library Management Application on your local system, follow these instructions:
-
-* Clone the repository: git clone https://github.com/milosheskasimona/library-management-application.git
-* Navigate to the project directory: cd library-management-application
-* Install dependencies: npm install
-* Configure the database: Ensure a compatible database is set up and modify the configuration file accordingly. <br>
-DDL Script for the database is located at: src/main/resources/LibraryManagementDDL.sql <br>
-Also you need to set up properties for the database at: src/main/resources/application-postgre.properties 
-* Start the application: npm start
-* Access the application in your browser at http://localhost:8081.
+* Presentation Layer: Handles user interactions and displays information. (Controller)
+* Service layer: Contains business logic and processes data. (Service)
+* Data Layer: Manages data storage and retrieval. (Repository)
+### ER Diagram of the database
+![](src/main/resources/ER-Diagram.png)
+## Security
+The security aspect of our Library Management Application has been
+designed and implemented using Spring Security with JWT (JSON Web Token) and cookies.
+### JWT Token and Cookies
+Integrated JSON Web Tokens (JWT) to handle secure authentication and authorization.
+When users log in, they receive a JWT token, which is then stored as a secure HttpCookie.
+This token ensures that only authenticated users can access protected endpoints and perform authorized actions within the application.
+### Role-Based Access Control
+The application implements two primary roles: ADMIN and LIBRARIAN.
+Each role has specific access privileges to perform relevant operations.
+ADMIN role grants full control over the system, including managing users, authors, books, and orders.
+LIBRARIAN role allows essential library management tasks, such as adding books, creating orders, and managing clients.
+Once registered user, can log in using their credentials, and upon successful authentication,
+they gain access to their respective roles and associated functionalities.
 
 ## API Documentation
 The Project API provides a set of endpoints to perform various operations related to
@@ -110,20 +123,20 @@ The base URL for all API endpoints is `http://localhost:8081`
 | Register a new admin                    | /admin                        | POST        | Not required     |
 | Register a new user                     | /user                         | POST        | Not required     |
 | Register a new librarian                | /librarian                    | POST        | Not required     |
-## Security
-The security aspect of our Library Management Application has been 
-designed and implemented using Spring Security with JWT (JSON Web Token) and cookies.
-### JWT Token and Cookies
-Integrated JSON Web Tokens (JWT) to handle secure authentication and authorization.
-When users log in, they receive a JWT token, which is then stored as a secure HttpCookie.
-This token ensures that only authenticated users can access protected endpoints and perform authorized actions within the application.
-### Role-Based Access Control
-The application implements two primary roles: ADMIN and LIBRARIAN.
-Each role has specific access privileges to perform relevant operations.
-ADMIN role grants full control over the system, including managing users, authors, books, and orders.
-LIBRARIAN role allows essential library management tasks, such as adding books, creating orders, and managing clients.
-Once registered user, can log in using their credentials, and upon successful authentication,
-they gain access to their respective roles and associated functionalities.
+
+## Getting Started
+
+To run Library Management Application on your local system, follow these instructions:
+
+* Clone the repository: git clone https://github.com/milosheskasimona/library-management-application.git
+* Navigate to the project directory: cd library-management-application
+* Install dependencies: npm install
+* Configure the database: Ensure a compatible database is set up and modify the configuration file accordingly. <br>
+  DDL Script for the database is located at: src/main/resources/LibraryManagementDDL.sql <br>
+  Also you need to set up properties for the database at: src/main/resources/application-postgre.properties
+* Start the application: npm start
+* Access the application in your browser at http://localhost:8081.
+
 ## Feature Plans
 ### Online Access and Client Registration
 The main focus is to make the library management application accessible online, enabling clients to register themselves on the platform.
