@@ -30,13 +30,14 @@ Below are the main features provided by this application:
 `getAllBooks()`: Retrieve a list of all books available in the library.<br>
 `findBookById(Integer id)`: Retrieve detailed information about a book based on its ID.<br>
 `findAllBooksByAuthor(Author author)`: Retrieve all books written by a specific author.<br>
-`saveBook(BookRequest bookRequest)`: This method allows adding a new book to the library. If a book with the same name already exists, it will only be added as a new entry if the author is different,
+`saveBook(BookRequest bookRequest)`: This method allows adding a new book to the library. 
+If a book with the same name already exists, it will only be added as a new entry if the author is different,
 otherwise, the quantity of the existing book can be increased<br>
 `addBookCopy(Integer id)`: Increasing the quantity of specific book. <br>
 `deleteBookById(Integer id)`: Delete a book from the library based on its ID.<br>
 `editBookById(Integer id, BookRequest bookRequest)`: Edit and update book information based on its ID.<br>
 #### Author Management
-`getAllAuthors()`: Retrieve a list of all authors in the library.
+`getAllAuthors()`: Retrieve a list of all authors in the library.<br>
 `findAuthorById(Integer id)`: Retrieve detailed information about an author based on their ID.<br>
 `saveAuthor(AuthorRequest authorRequest)`: Create a new author with the provided details.<br>
 `deleteAuthorById(Integer id)`: Delete an author from the system based on their ID.<br>
@@ -69,7 +70,9 @@ To run Library Management Application on your local system, follow these instruc
 * Clone the repository: git clone https://github.com/milosheskasimona/library-management-application.git
 * Navigate to the project directory: cd library-management-application
 * Install dependencies: npm install
-* Configure the database: Ensure a compatible database is set up and modify the configuration file accordingly.
+* Configure the database: Ensure a compatible database is set up and modify the configuration file accordingly. <br>
+DDL Script for the database is located at: src/main/resources/LibraryManagementDDL.sql <br>
+Also you need to set up properties for the database at: src/main/resources/application-postgre.properties 
 * Start the application: npm start
 * Access the application in your browser at http://localhost:8081.
 
